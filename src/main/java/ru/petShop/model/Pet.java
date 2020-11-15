@@ -1,6 +1,6 @@
 package ru.petShop.model;
 
-public class PetEntity {
+public class Pet {
     private String name;
     private int age;
     private int weight;
