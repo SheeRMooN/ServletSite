@@ -929,11 +929,11 @@ APPLICATION_PASSWORD_ADMIN,BACKUP_ADMIN,BINLOG_ADMIN,BINLOG_ENCRYPTION_ADMIN,CON
     </column>
     <column id="289" parent="284" name="breed">
       <Position>4</Position>
-      <DataType>char(64)|0s</DataType>
+      <DataType>varchar(32)|0s</DataType>
     </column>
-    <column id="290" parent="284" name="coulor">
+    <column id="290" parent="284" name="color">
       <Position>5</Position>
-      <DataType>char(32)|0s</DataType>
+      <DataType>varchar(32)|0s</DataType>
     </column>
     <column id="291" parent="284" name="gender">
       <Position>6</Position>

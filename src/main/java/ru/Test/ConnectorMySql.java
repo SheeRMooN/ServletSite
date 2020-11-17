@@ -1,7 +1,7 @@
-package ru.petShop.dao;
+package ru.Test;
 
 import java.sql.*;
-
+@Deprecated
 public class ConnectorMySql {
     public static void main(String[] args) throws ClassNotFoundException {
         String userName = "root";
@@ -12,8 +12,10 @@ public class ConnectorMySql {
                 Connection connection = DriverManager.getConnection(connectorURL,userName,password);
                 Statement statement = connection.createStatement();
         ){
-            statement.execute("");
-
+            ResultSet resultSet = statement.executeQuery("select * from pets;");
+            while (resultSet.next()) {
+                System.out.println(resultSet.getString(2) + " " + resultSet.getString(3));
+            }
 
         } catch (SQLException  throwables) {
             System.out.println("Connect entity.");
