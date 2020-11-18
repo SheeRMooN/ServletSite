@@ -1,7 +1,6 @@
 package ru.petShop.dao;
 
 import ru.petShop.exception.DaoException;
-import ru.petShop.model.Kind;
 import ru.petShop.model.Pet;
 
 import java.sql.*;
@@ -24,19 +23,12 @@ public class DictionaryDaoImpl implements DictionaryDao {
     public List<Pet> allPet() throws DaoException {
         List<Pet> petList = new LinkedList<>();
 
-        try(Connection connection = getConnect()) {
+        try (Connection connection = getConnect()) {
             Statement statement = connection.createStatement();
-            String sql = "SELECT name_pet, kind, breed, color, gender FROM pets;"; // +pattern
+            String sql = "SELECT name_pet, kind, breed, color, gender FROM pets;";
             ResultSet resultSet = statement.executeQuery(sql);
 
             while (resultSet.next()) {
-//                pet.setName(resultSet.getString("name_pet"));
-//                pet.setKind(resultSet.getString("kind"));
-//                pet.setBreed(resultSet.getString("breed"));
-//                pet.setColor(resultSet.getString("color"));
-//                pet.setGender(resultSet.getString("gender"));
-//                petList.add(pet);
-
                 petList.add(new Pet(resultSet.getString("name_pet"),
                         resultSet.getString("kind"),
                         resultSet.getString("breed"),
@@ -46,7 +38,7 @@ public class DictionaryDaoImpl implements DictionaryDao {
 //            while (resultSet.next()){
 //                System.out.println(resultSet.getString("name_pet"));
 //            }
-        }catch(SQLException  | ClassNotFoundException exeption){
+        } catch (SQLException | ClassNotFoundException exeption) {
             throw new DaoException(exeption);
         }
         return petList;

@@ -10,7 +10,7 @@ public class ConnectorMySql {
         Class.forName("com.mysql.cj.jdbc.Driver");
         try (
                 Connection connection = DriverManager.getConnection(connectorURL,userName,password);
-                Statement statement = connection.createStatement();
+                Statement statement = connection.createStatement()
         ){
             ResultSet resultSet = statement.executeQuery("select * from pets;");
             while (resultSet.next()) {
